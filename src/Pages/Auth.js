@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Container, Form, Card, Button} from "react-bootstrap"
-import {NavLink, useLocation} from "react-router-dom"
-import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../Utils/Consts"
+import {NavLink, useLocation, useNavigate} from "react-router-dom"
+import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../Utils/Consts"
+import { Context } from '../index'
 
 const Auth = () => {
     const location = useLocation()
     const IsLogin = location.pathname === LOGIN_ROUTE
-    console.log(location)
+    const navigate = useNavigate()
+    const {user} = useContext(Context)
     
     return(
         <Container 
@@ -36,13 +38,17 @@ const Auth = () => {
                 </div>
                 }
                 {IsLogin ?
-                <Button
-                     variant = {"outline-success"}>
+                <Button variant = {"outline-success"} onClick={() => {
+                       navigate(SHOP_ROUTE);
+                       user.setIsAuth(true);
+                }}>
                             SignIn
                     </Button>
                     :
-                    <Button
-                    variant = {"outline-success"}>
+                    <Button variant = {"outline-success"} onClick={() => {
+                        navigate(SHOP_ROUTE);
+                        user.setIsAuth(true);
+                    }}>
                            SignUp
                    </Button>
                 }
