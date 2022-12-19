@@ -6,11 +6,13 @@ import { GAME_ROUTE } from '../Utils/Consts'
 
 const GameItem = ({game}) => {
     const navigate = useNavigate()
-    console.log(navigate)
+    
     return (
-        <Col md = {3} className={"mt-5"} onClick = {() => navigate(GAME_ROUTE + '/' + game.id)}>
-            <Card style = {{width: 150, cursor: "pointer"}} border={"light"}>
-                <Image width={150} height={150} src={game.img} />
+        <Col md = {3} 
+        className={"mt-5"} 
+        onClick = {() => navigate(GAME_ROUTE + '/' + game.id)}>
+            <Card style = {{width: 150, cursor: "pointer", backgroundColor: "gray", color:"whitesmoke"}} border={"dark"}>
+                <Image width={150} height={150} src={process.env.REACT_APP_API_URL + game.img}/>
                 <div className='mt-2 d-flex justify-content-between align-items-center'>
                     <div>{game.name}</div>
                     <div>

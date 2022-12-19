@@ -2,24 +2,12 @@ import {makeAutoObservable} from "mobx"
 
 export default class GameStore {
     constructor() {
-        this._categories = [
-            {id: 1, name: 'RPG'},
-            {id: 2, name: 'Survival'},
-            {id: 3, name: 'Strategy'},
-            {id: 4, name: 'Simulator'},
-            {id: 5, name: 'Sport'},
-        ]
-        this._games = [
-            {id: 1, name: 'Dota 2', price: 0, rating: 4.5, img:'Dota Image'},
-            {id: 2, name: 'DayZ', price: 45, rating: 4.3, img:'DayZ Image'},
-            {id: 3, name: 'GTA V', price: 100, rating: 5, img:'GTA V Image'},
-            {id: 4, name: 'GTA V', price: 100, rating: 5, img:'GTA V Image'},
-            {id: 5, name: 'GTA V', price: 100, rating: 5, img:'GTA V Image'},
-            {id: 6, name: 'GTA V', price: 100, rating: 5, img:'GTA V Image'},
-            {id: 7, name: 'GTA V', price: 100, rating: 5, img:'GTA V Image'},
-
-        ]
+        this._categories = []
+        this._games = []
         this._selectedCategory = {}
+        this._page = 1
+        this._totalCount = 0
+        this._limit = 3
         makeAutoObservable(this)
     }
 
@@ -31,17 +19,34 @@ export default class GameStore {
     }
 
     setSelectedCategory(category){
+        this.setPage(1)
         this._selectedCategory = category
 
     }
 
-    get Categories(){
+    setPage(page) {
+        this._page = page
+    }
+    setTotalCount(count) {
+        this._totalCount = count
+    }
+
+    get categories(){
         return this._categories
     }
-    get Games() {
+    get games() {
         return this._games
     }
     get selectedCategory() {
         return this._selectedCategory
+    }
+    get totalCount() {
+        return this._totalCount
+    }
+    get page() {
+        return this._page
+    }
+    get limit() {
+        return this._limit
     }
 }

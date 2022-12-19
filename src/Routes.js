@@ -6,7 +6,7 @@ import Shop from "./Pages/Shop"
 import Auth from "./Pages/Auth"
 import GamePage from "./Pages/GamePage"
 
-export const AuthRoutes = [
+export const authRoutes = [
     {
         path: ADMIN_ROUTE,
         Component: Admin
@@ -17,7 +17,7 @@ export const AuthRoutes = [
     }
 ]
 
-export const PublicRoutes = [
+export const publicRoutes = [
     {
         path: SHOP_ROUTE,
         Component: Shop

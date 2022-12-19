@@ -12,18 +12,25 @@ import {ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../Utils
 const NavBar = observer(() => {
     const {user} = useContext(Context)
     const navigate = useNavigate()
+    
+    const logOut = () => {
+      user.setUser({})
+      user.setIsAuth(false)
+  }
+    
     return (
         <Navbar bg="dark" variant="dark">
         <Container>
          <NavLink style={{color: "whitesmoke", }} to = {SHOP_ROUTE}>GameStore</NavLink>
           {user.isAuth ?
           <Nav className="ml-auto" style={{color: "white"}}>
-            <Button variant='outline-light' onClick={() => navigate(ADMIN_ROUTE)}>Admin</Button>
+            <Button variant='outline-light' 
+                    onClick={() => navigate(ADMIN_ROUTE)}>Admin</Button>
             <Button variant={'outline-light'}
-              onClick={() => {
-                navigate(LOGIN_ROUTE);
-                user.setIsAuth(false);
-              }}> Quit</Button>
+                    onClick={() => {
+                        navigate(LOGIN_ROUTE);
+                        logOut()
+             }}> Quit</Button>
           </Nav>
           :
           <Nav className="ml-auto" style={{color: "white"}}>
