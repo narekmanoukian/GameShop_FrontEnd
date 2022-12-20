@@ -8,52 +8,19 @@ This project was built to help you start express API with a boilerplate which is
 
 * Creating categories and games with system requirements in admin panel
 * Ability to buy games
-* 
-* 
-* 
-* 
+* All games are rated by many Steam and EpicStore users
+ 
 
 ### Installing
 
-git clone https://github.com/narekmanoukian/GameShop_FrontEnd.git
-cd ./front
-npm install
+* git clone https://github.com/narekmanoukian/GameShop_FrontEnd.git<br>
+* cd ./front<br>
+* npm install<br>
+
+### Copy and place in your .env file
+
+*REACT_APP_API_URL = "http://localhost:5000/"
 
 
-## Getting Started
-
-To test the application
-
-* 
-*
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-some code if you need it
-
-* Copy it and place in in your .env file
-* Example
-* Start the application
-nodemon server.js
-
-* 
-*
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-## 
-
-Contributors names and contact info
-Feel free to contribute to the project
 
 Author - narekmanoukian
